@@ -1,0 +1,32 @@
+//sample file with the bootstrap media queries (use these so they match the breakpoints of the grid system)
+// xs: 0,
+// sm: 576px,
+// md: 768px,
+// lg: 992px,
+// xl: 1200px
+
+@include media-breakpoint-up(xs) {
+	body {
+		background-color: #fff1d4;
+	}
+}
+@include media-breakpoint-up(sm) {
+	body {
+		background-color: #fbdfa3;
+	}
+}
+@include media-breakpoint-up(md) {
+	body {
+		background-color: #fbcf70;
+	}
+}
+@include media-breakpoint-up(lg) {
+	body {
+		background-color: #fec447;
+	}
+}
+@include media-breakpoint-up(xl) {
+	body {
+		background-color: #ffb30f;
+	}
+}
