@@ -4,30 +4,30 @@
 // md: 768px,
 // lg: 992px,
 // xl: 1200px
-body {background:red;}
+
 
 @include media-breakpoint-up(xs) {
-	body {
-		background-color: #ffd4ee;
-	}
+  body {
+    background-color: #ffd4ee;
+  }
 }
 @include media-breakpoint-up(sm) {
-	body {
-		background-color: #fbdfa3;
-	}
+  body {
+    background-color: #fbdfa3;
+  }
 }
-@include media-breakpoint-up(md) {s
-	body {
-		background-color: #fbcf70;
-	}
+@include media-breakpoint-up(md) {
+  s body {
+    background-color: #fbcf70;
+  }
 }
 @include media-breakpoint-up(lg) {
-	body {
-		background-color: #fec447;
-	}
+  body {
+    background-color: #fec447;
+  }
 }
 @include media-breakpoint-up(xl) {
-	body {
-		background-color: #ffb30f;
-	}
+  body {
+    background-color: #ffb30f;
+  }
 }

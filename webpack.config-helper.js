@@ -4,10 +4,11 @@ const Path = require('path');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
+const ExtractSASS = new ExtractTextPlugin('styles/styles.[hash].css');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const autoprefixer = require('autoprefixer'); 
 
 module.exports = (options) => {
   const dest = Path.join(__dirname, 'dist');
@@ -60,7 +61,21 @@ module.exports = (options) => {
 
     webpackConfig.module.rules.push({
       test: /\.s?css/i,
-      use: ExtractSASS.extract(['css-loader?sourceMap=true&minimize=true', 'sass-loader'])
+      use: ExtractSASS.extract([
+        'css-loader?sourceMap=true&minimize=true', 
+        {
+          loader: "postcss-loader",
+          options: {
+              autoprefixer: {
+                  browsers: ["last 2 versions"]
+              },
+              plugins: () => [
+                  autoprefixer
+              ]
+          },
+        },        
+        'sass-loader'
+      ])
     });
 
   } else {
@@ -70,7 +85,21 @@ module.exports = (options) => {
 
     webpackConfig.module.rules.push({
       test: /\.s?css$/i,
-      use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
+      use: [
+        'style-loader', 
+        'css-loader?sourceMap=true', 
+        {
+          loader: "postcss-loader",
+          options: {
+              autoprefixer: {
+                  browsers: ["last 2 versions"]
+              },
+              plugins: () => [
+                  autoprefixer
+              ]
+          },
+        },
+        'sass-loader']
     }, {
       test: /\.js$/,
       use: 'eslint-loader',
