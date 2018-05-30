@@ -4,10 +4,11 @@
 // md: 768px,
 // lg: 992px,
 // xl: 1200px
+body {background:red;}
 
 @include media-breakpoint-up(xs) {
 	body {
-		background-color: #fff1d4;
+		background-color: #ffd4ee;
 	}
 }
 @include media-breakpoint-up(sm) {
@@ -15,7 +16,7 @@
 		background-color: #fbdfa3;
 	}
 }
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(md) {s
 	body {
 		background-color: #fbcf70;
 	}
